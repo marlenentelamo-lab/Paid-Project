@@ -1,18 +1,22 @@
 const year = document.getElementById("year");
-const thisYear = new Date().getFullYear();
 
-year.setAttribute("datetime", thisYear);
-year.textContent = thisYear;
+if (year) {
+  const thisYear = new Date().getFullYear();
+  year.setAttribute("datetime", thisYear);
+  year.textContent = thisYear;
+}
+
 
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+if (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
 
-  alert(`Thank you, ${name}! Your message has been sent.`);
-
-  form.reset();
-});
+    alert(`Thank you, ${name}! Your message has been sent.`);
+    form.reset();
+  });
+}
